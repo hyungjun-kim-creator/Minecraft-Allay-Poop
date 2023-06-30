@@ -30,24 +30,26 @@ public class apcommand implements CommandExecutor {
                         } else if (allaypoopstate == 0) {
                             sender.sendMessage("현재 알레이가 플레이어에게 똥을 주지 않습니다.");
                         }
-                    } else if (sender.isOp()) {
-                        if (args[0].equals("true")) {
-                            allaypoopstate = 1;
-                            sender.sendMessage("지금부터 알레이가 플레이어에게 똥만 줍니다.");
-                        } else if (args[0].equals("false")) {
-                            allaypoopstate = 0;
-                            sender.sendMessage("지금부터 알레이가 플레이어에게 똥을 주지 않습니다.");
-                        } else {
-                            sender.sendMessage("명령어 입력이 잘못되었습니다.");
-                            sender.sendMessage("§e/" + label + " help §f도움말을 표시합니다.");
-                        }
-                    } else if (sender.isOp() == false) {
-                        sender.sendMessage("관리자 권한(op)가 없어서 해당 명령어 입력이 불가능합니다.");
                     }
-                }
                 else {
                     sender.sendMessage("명령어 입력이 잘못되었습니다.");
                     sender.sendMessage("§e/" + label + " help §f도움말을 표시합니다.");
+                    }
+                }
+                else if (sender.isOp()) {
+                    if (args[0].equals("true")) {
+                        allaypoopstate = 1;
+                        sender.sendMessage("지금부터 알레이가 플레이어에게 똥만 줍니다.");
+                    } else if (args[0].equals("false")) {
+                        allaypoopstate = 0;
+                        sender.sendMessage("지금부터 알레이가 플레이어에게 똥을 주지 않습니다.");
+                    } else {
+                        sender.sendMessage("명령어 입력이 잘못되었습니다.");
+                        sender.sendMessage("§e/" + label + " help §f도움말을 표시합니다.");
+                    }
+                }
+                else if (sender.isOp() == false) {
+                    sender.sendMessage("관리자 권한(op)가 없어서 해당 명령어 입력이 불가능합니다.");
                 }
             }
             else {
