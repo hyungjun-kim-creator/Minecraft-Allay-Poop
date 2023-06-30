@@ -1,0 +1,4 @@
+name: AllayPoop
+version: '${project.version}'
+main: org.hjun.plugin.allaypoop.AllayPoop
+api-version: '1.20'
