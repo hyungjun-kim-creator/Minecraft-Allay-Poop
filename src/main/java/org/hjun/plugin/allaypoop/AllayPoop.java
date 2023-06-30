@@ -1,17 +1,26 @@
 package org.hjun.plugin.allaypoop;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class AllayPoop extends JavaPlugin {
+import java.util.logging.Logger;
+
+public class AllayPoop extends JavaPlugin {
+
+    public static int allaypoop = 0;
+    public static int Allay = 0;
+    Logger logger = getServer().getLogger();
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        Bukkit.getPluginManager().registerEvents(new apevent(), this);
+        getCommand("allaypoop").setExecutor(new apcommand());
+        logger.info("[AllayPoop] AllayPoop plugin has successfully started!");
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        logger.info("[AllayPoop] AllayPoop plugin has stoped!");
     }
 }

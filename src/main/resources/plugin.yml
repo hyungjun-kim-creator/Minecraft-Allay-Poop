@@ -2,3 +2,6 @@ name: AllayPoop
 version: '${project.version}'
 main: org.hjun.plugin.allaypoop.AllayPoop
 api-version: '1.20'
+allaypoop:
+    description: allaypoop default command
+    aliases: [hap, ap]
