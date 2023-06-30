@@ -8,27 +8,34 @@ import org.bukkit.entity.Player;
 import java.util.logging.Logger;
 
 import static org.bukkit.Bukkit.getServer;
-import static org.hjun.plugin.allaypoop.AllayPoop.allaypoop;
+import static org.hjun.plugin.allaypoop.AllayPoop.allaypoopstate;
 
 public class apcommand implements CommandExecutor {
+
+    public static AllayPoop plugin;
+
+    public static void setPlugin(AllayPoop MainPlugin) {
+        plugin = MainPlugin;
+    }
+
     Logger logger = getServer().getLogger();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equals("allaypoop")) {
             if (sender instanceof Player) {
-                if (args[0].equals("status")) {
+                if (args[0].equals("state")) {
                     if (args.length == 1) {
-                        if (allaypoop == 1) {
+                        if (allaypoopstate == 1) {
                             sender.sendMessage("현재 알레이가 플레이어에게 똥만 줍니다.");
-                        } else if (allaypoop == 0) {
+                        } else if (allaypoopstate == 0) {
                             sender.sendMessage("현재 알레이가 플레이어에게 똥을 주지 않습니다.");
                         }
                     } else if (sender.isOp()) {
                         if (args[0].equals("true")) {
-                            allaypoop = 1;
+                            allaypoopstate = 1;
                             sender.sendMessage("지금부터 알레이가 플레이어에게 똥만 줍니다.");
                         } else if (args[0].equals("false")) {
-                            allaypoop = 0;
+                            allaypoopstate = 0;
                             sender.sendMessage("지금부터 알레이가 플레이어에게 똥을 주지 않습니다.");
                         } else {
                             sender.sendMessage("명령어 입력이 잘못되었습니다.");
@@ -44,19 +51,19 @@ public class apcommand implements CommandExecutor {
                 }
             }
             else {
-                if (args[0].equals("status")) {
+                if (args[0].equals("state")) {
                     if (args.length == 1) {
-                        if (allaypoop == 1) {
+                        if (allaypoopstate == 1) {
                             logger.info("현재 알레이가 플레이어에게 똥만 줍니다.");
-                        } else if (allaypoop == 0) {
+                        } else if (allaypoopstate == 0) {
                             logger.info("현재 알레이가 플레이어에게 똥을 주지 않습니다.");
                         }
                     }
                     if (args[0].equals("true")) {
-                        allaypoop = 1;
+                        allaypoopstate = 1;
                         logger.info("지금부터 알레이가 플레이어에게 똥만 줍니다.");
                     } else if (args[0].equals("false")) {
-                        allaypoop = 0;
+                        allaypoopstate = 0;
                         logger.info("지금부터 알레이가 플레이어에게 똥을 주지 않습니다.");
                     }
                     else {
